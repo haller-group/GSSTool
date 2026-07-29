@@ -51,10 +51,10 @@ earthquake ground-motion forcing.
   (piecewise-exact and Newmark solves) and compares it against a
   full-order Newmark time integration.
 - **`VkBeamCluster.m`** — the same GSS-vs-full-order comparison, run
-  as a mesh-refinement sweep (multiple element counts) in parallel on a
+  as a mesh-refinement sweep in parallel on a
   cluster.
 - **`rw_calculation_vonKarmanBeam_AnchorTool.m`** — computes the
-  forcing-weakness ratio r_w for this example.
+  forcing weakness ratio r_w for this example.
 
 ### `AxialMovingBeam_GSS/`
 An axially moving beam with gyroscopic and nonlinear (viscoelastic)
@@ -76,12 +76,10 @@ under three forcing scenarios.
   **`Oscillator_chain_LTSM_compare_GSS.m`** — filtered-noise/recorded
   forcing; compare the GSS (at increasing truncation orders)
   against a full-order time integration and an autoencoder+LSTM model [1] trained on the same data.
-- **`rw_calculation_OscillatorChain.m`** — computes r_w (random-IC
-  ensemble average) for this example.
+- **`rw_calculation_OscillatorChain.m`** — computes r_w for this example.
 
 ### `vonKarmanShell_GSS/`
-A von Karman shell-based shallow curved panel (Davenport wind-load
-model), under two forcing scenarios.
+A von Karman shell-based shallow curved panel, under two forcing scenarios.
 - **`Plate_QP_GSS.m`** / **`Plate_QP_GSS_Galerkin.m`** — quasi-periodic
   wind pressure fluctuations; the `_Galerkin` variant adds a
   Galerkin-projected ROM comparison (on a truncated modal basis)
@@ -97,8 +95,7 @@ model), under two forcing scenarios.
 ## Partial data-driven GSS examples
 
 These two examples combine a **data-driven** SSM identification step
-(learned from simulated or recorded trajectories, in the style of
-SSMLearn/fastSSM) with a GSS correction term that accounts for the
+(learned from simulated or recorded trajectories via SSMLearn/fastSSM) with a GSS correction term that accounts for the
 external forcing, including comparisons with autoencoder+LSTM models [1].
 
 ### `Partial data-driven GSS/Oscillator Chain/`
@@ -106,7 +103,7 @@ external forcing, including comparisons with autoencoder+LSTM models [1].
   free trajectories of a stochastically-forced oscillator chain, adds a
   GSS correction to account for the forcing, and compares the resulting
   prediction against a full-order time integration and an
-  autoencoder+LSTM surrogate. Also renders a comparison movie.
+  autoencoder+LSTM model. Also renders a comparison movie.
 
 ### `Partial data-driven GSS/vonKarman beam copy/`
 - **`vonKarman_beam_SSM_GSS.m`** — the same data-driven-SSM-plus-GSS
